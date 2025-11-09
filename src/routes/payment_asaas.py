@@ -9,7 +9,7 @@ payment_asaas_bp = Blueprint('payment_asaas', __name__)
 ASAAS_API_KEY = os.getenv('ASAAS_API_KEY', '$aact_prod_000MzkwODA2MWY2OGM3MWRlMDU2NWM3MzJlNzZmNGZhZGY6Ojk0NzQ0YzJlLWIxZDMtNGZmOS1hMGJjLTQyYTFiMDI4OTUyYjo6JGFhY2hfNzI3YmM0ZDQtZTliMy00OWUxLWJmYzktMzM1YTk4MzE1NTkz')
 
 # URL base da API (produção)
-ASAAS_API_URL = 'https://www.asaas.com/api/v3'
+ASAAS_API_URL = 'https://api.asaas.com/v3'
 
 # Headers padrão
 def get_headers():
@@ -40,7 +40,6 @@ def create_customer():
             "email": lead_data.get('email', ''),
             "phone": lead_data.get('phone', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', ''),
             "mobilePhone": lead_data.get('phone', '').replace('(', '').replace(')', '').replace('-', '').replace(' ', ''),
-            "cpfCnpj": "",  # Opcional
             "notificationDisabled": False
         }
         
@@ -293,4 +292,5 @@ def payment_failure():
     </body>
     </html>
     """
+
 
